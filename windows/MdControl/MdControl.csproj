@@ -11,4 +11,11 @@
     <PackageReference Include="MdXaml.Full" Version="1.27.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="images\edit.png" />
+    <Resource Include="images\archive.png" />
+    <Resource Include="images\restore.png" />
+    <Resource Include="images\delete.png" />
+  </ItemGroup>
+
 </Project>

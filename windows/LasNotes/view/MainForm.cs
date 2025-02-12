@@ -20,8 +20,8 @@ internal partial class MainForm : Form {
 
         InitializeComponent();
         // due to a bug in UI Designer, these ElementHosts should be handled manually
-        wpfHostSingle = new() { Child = sorexMarkdownSingle = new(), Dock = DockStyle.Fill };
-        wpfHostMulti = new() { Child = sorexMarkdownMulti = new(), Dock = DockStyle.Fill };
+        wpfHostSingle = new() { Child = markdownSingle = new(), Dock = DockStyle.Fill };
+        wpfHostMulti = new() { Child = markdownMulti = new(), Dock = DockStyle.Fill };
         editSplitPanel.Panel2.Controls.Add(wpfHostSingle);
         // manually add images to avoid warning: "Resource "imagesNew.ImageStream" of type "System.String" may be deserialized via BinaryFormatter at runtime. BinaryFormatter is deprecated..."
         imagesNew.Images.Add(Extensions.BytesToImage(new ResourceManager(GetType()).GetObject("plus") as byte[] ?? []));
@@ -59,14 +59,14 @@ internal partial class MainForm : Form {
             () => { vm.RestoreNoteById(note.Id); SetReadMode(search, searchMode); },
             () => { vm.DeleteNoteById(note.Id); SetReadMode(search, searchMode, updateTagBtns: true); }
         )) : [];
-        sorexMarkdownMulti.SetMarkdown(ctx);
+        markdownMulti.SetMarkdown(ctx);
 
         // bottom button
         buttonSave.Text = currentNoteId == null ? " Add Note" : "Update Note";
         buttonSave.ImageIndex = currentNoteId == null ? 0 : 1;
 
         // form
-        Text = vm.CurrentPath != null ? $"Sorex ({vm.CurrentPath})" : "Sorex";
+        Text = vm.CurrentPath != null ? $"Las Notes ({vm.CurrentPath})" : "Las Notes";
         panelLeft.Enabled = contentPanel.Enabled = vm.CurrentPath != null;
         if (editorMode == EditorMode.edit) textboxEdit.Focus();
     }
@@ -76,7 +76,7 @@ internal partial class MainForm : Form {
         openRecentMenuItem.DropDownItems.AddRange(User.Default.recentFiles.Cast<string>().Select(file => new ToolStripMenuItem(file, null, OnRecentFileClick)).ToArray());
     }
 
-    private void OnTextboxEditChange(object sender, EventArgs e) => sorexMarkdownSingle.Markdown = textboxEdit.Text;
+    private void OnTextboxEditChange(object sender, EventArgs e) => markdownSingle.Markdown = textboxEdit.Text;
 
     private void OnCheckboxShowArchiveChange(object sender, EventArgs e) => SetReadMode(search, searchMode);
 
@@ -115,15 +115,15 @@ internal partial class MainForm : Form {
 
     private void OnCloseFileClick(object sender, EventArgs e) => vm.CloseFile();
 
-    private void OnQuitSorexClick(object sender, EventArgs e) {
+    private void OnQuitClick(object sender, EventArgs e) {
         vm.CloseFile();
         Application.Exit();
     }
 
-    private void OnAboutSorexClick(object sender, EventArgs e) {
+    private void OnAboutClick(object sender, EventArgs e) {
         var info = Assembly.GetExecutingAssembly().GetName();
         var msg = $"{info.Name} v{info.Version}\nAuthor: Artem Mitrakov (mitrakov-artem@yandex.ru)\nLicensed under MIT © All rights reserved";
-        MessageBox.Show(msg, "Sorex", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show(msg, "Las Notes", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void SaveNote(object sender, EventArgs e) {

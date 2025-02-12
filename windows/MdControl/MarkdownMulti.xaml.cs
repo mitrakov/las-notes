@@ -82,7 +82,7 @@ public partial class MarkdownMulti : UserControl {
             Padding = new(6),
             ToolTip = hint,
             Child = new Image {
-                Source = new BitmapImage(new Uri($"/SorexMarkdownLibrary;component/images/{imageName}", UriKind.Relative)),
+                Source = new BitmapImage(new Uri($"/MdControl;component/images/{imageName}", UriKind.Relative)),
                 VerticalAlignment = VerticalAlignment.Center,
                 Height = 18,
                 Width = 18,

@@ -53,9 +53,9 @@ namespace LasNotes {
             separator2 = new ToolStripSeparator();
             closeFileMenuItem = new ToolStripMenuItem();
             separator3 = new ToolStripSeparator();
-            quitSorexMenuItem = new ToolStripMenuItem();
+            quitMenuItem = new ToolStripMenuItem();
             helpMenuItem = new ToolStripMenuItem();
-            aboutSorexMenuItem = new ToolStripMenuItem();
+            aboutMenuItem = new ToolStripMenuItem();
             panelLeft.SuspendLayout();
             panelTop.SuspendLayout();
             contentPanel.SuspendLayout();
@@ -240,7 +240,7 @@ namespace LasNotes {
             // 
             // fileMenuItem
             // 
-            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openRecentMenuItem, separator1, newFileMenuItem, openMenuItem, separator2, closeFileMenuItem, separator3, quitSorexMenuItem });
+            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openRecentMenuItem, separator1, newFileMenuItem, openMenuItem, separator2, closeFileMenuItem, separator3, quitMenuItem });
             fileMenuItem.Name = "fileMenuItem";
             fileMenuItem.Size = new Size(46, 24);
             fileMenuItem.Text = "File";
@@ -287,26 +287,26 @@ namespace LasNotes {
             separator3.Name = "separator3";
             separator3.Size = new Size(174, 6);
             // 
-            // quitSorexMenuItem
+            // quitMenuItem
             // 
-            quitSorexMenuItem.Name = "quitSorexMenuItem";
-            quitSorexMenuItem.Size = new Size(177, 26);
-            quitSorexMenuItem.Text = "Quit Sorex";
-            quitSorexMenuItem.Click += OnQuitSorexClick;
+            quitMenuItem.Name = "quitMenuItem";
+            quitMenuItem.Size = new Size(177, 26);
+            quitMenuItem.Text = "Quit Las Notes";
+            quitMenuItem.Click += OnQuitClick;
             // 
             // helpMenuItem
             // 
-            helpMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutSorexMenuItem });
+            helpMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutMenuItem });
             helpMenuItem.Name = "helpMenuItem";
             helpMenuItem.Size = new Size(55, 24);
             helpMenuItem.Text = "Help";
             // 
-            // aboutSorexMenuItem
+            // aboutMenuItem
             // 
-            aboutSorexMenuItem.Name = "aboutSorexMenuItem";
-            aboutSorexMenuItem.Size = new Size(174, 26);
-            aboutSorexMenuItem.Text = "About Sorex";
-            aboutSorexMenuItem.Click += OnAboutSorexClick;
+            aboutMenuItem.Name = "aboutMenuItem";
+            aboutMenuItem.Size = new Size(174, 26);
+            aboutMenuItem.Text = "About Las Notes";
+            aboutMenuItem.Click += OnAboutClick;
             // 
             // MainForm
             // 
@@ -319,7 +319,7 @@ namespace LasNotes {
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = mainMenu;
             Name = "MainForm";
-            Text = "Sorex";
+            Text = "Las Notes";
             WindowState = FormWindowState.Maximized;
             panelLeft.ResumeLayout(false);
             panelTop.ResumeLayout(false);
@@ -341,8 +341,8 @@ namespace LasNotes {
 
         private ElementHost wpfHostSingle;
         private ElementHost wpfHostMulti;
-        private MarkdownMulti sorexMarkdownMulti;
-        private MarkdownSingle sorexMarkdownSingle;
+        private MarkdownMulti markdownMulti;
+        private MarkdownSingle markdownSingle;
         private Panel panelLeft;
         private Panel contentPanel;
         private Panel panelTop;
@@ -355,9 +355,9 @@ namespace LasNotes {
         private ToolStripSeparator separator2;
         private ToolStripMenuItem closeFileMenuItem;
         private ToolStripSeparator separator3;
-        private ToolStripMenuItem quitSorexMenuItem;
+        private ToolStripMenuItem quitMenuItem;
         private ToolStripMenuItem helpMenuItem;
-        private ToolStripMenuItem aboutSorexMenuItem;
+        private ToolStripMenuItem aboutMenuItem;
         private Button buttonNew;
         private CheckBox checkShowArchive;
         private TextBox textboxSearch;

@@ -22,13 +22,13 @@ internal class MainViewModel : INotifyPropertyChanged {
     }
 
     internal void OpenFile() {
-        var dialog = new OpenFileDialog() { Title = "Select a DB file", Filter = "Sorex DB files (*.db)|*.db|All Files (*.*)|*.*" };
+        var dialog = new OpenFileDialog() { Title = "Select a DB file", Filter = "Las Notes DB files (*.db)|*.db|All Files (*.*)|*.*" };
         if (dialog.ShowDialog() == DialogResult.OK)
             OpenFile(dialog.FileName);
     }
 
     internal void NewFile() {
-        var dialog = new SaveFileDialog() { Title = "New DB file", FileName = "mydb", DefaultExt = "db", Filter = "Sorex DB files (*.db)|*.db" };
+        var dialog = new SaveFileDialog() { Title = "New DB file", FileName = "mydb", DefaultExt = "db", Filter = "Las Notes DB files (*.db)|*.db" };
         if (dialog.ShowDialog() == DialogResult.OK) {
             var path = dialog.FileName;
             if (File.Exists(path)) {
