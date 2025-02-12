@@ -7,4 +7,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MdXaml.Full" Version="1.27.0" />
+  </ItemGroup>
+
 </Project>
