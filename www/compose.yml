@@ -46,4 +46,4 @@ services:
     volumes:
       - ./cbdata:/etc/letsencrypt
       - ./wpdata:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email mitrakov-artem@yandex.ru --agree-tos --force-renewal -d lasnotes.com
+    command: certonly --webroot --webroot-path=/var/www/html --email mitrakov-artem@yandex.ru --agree-tos --force-renewal -d lasnotes.com --renew-hook "docker compose restart webserver"
