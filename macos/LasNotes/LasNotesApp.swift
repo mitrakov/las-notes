@@ -3,6 +3,12 @@ import SwiftUI
 let recentFilesKey = "RECENT_FILES"
 
 // bug: performace of ScrollView
+
+// build:
+// 1. Bump version and build numbers in LasNotes -> Targets -> General
+// 2. Product -> Destination -> Any Mac (Apple Silicon, Intel)
+// 3. Product -> Archive -> Distribute App -> Custom -> Copy App (export to _installer/App/)
+// 4. Run _installer/build-dmg.sh
 @main
 struct lasNotesApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate // remove standard MacOS menu items (https://stackoverflow.com/a/70553784/2212849)
