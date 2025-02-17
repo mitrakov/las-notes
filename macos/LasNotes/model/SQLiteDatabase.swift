@@ -80,8 +80,7 @@ class SQLiteDatabase {
         var noteId: Int64 = 0
         do {
             try db?.transaction {
-                try db?.execute("INSERT INTO note DEFAULT VALUES;") // INSERT doesn't provide last insert ID
-                noteId = db?.lastInsertRowid ?? -1
+                noteId = try db?.scalar("INSERT INTO note DEFAULT VALUES RETURNING note_id;") as! Int64
                 try db?.run("INSERT INTO notedata (rowid, data) VALUES (?, ?);", noteId, data)
             }
         } catch {print(error)}
@@ -190,7 +189,7 @@ class SQLiteDatabase {
           INNER JOIN tag         USING (tag_id)
           WHERE note_id IN (SELECT note_id FROM tag INNER JOIN note_to_tag USING (tag_id) WHERE name = ?)
         """
-        + (fetchDeleted ? "" : "AND NOT is_deleted ") +
+        + (fetchDeleted ? "" : " AND NOT is_deleted ") +
         """
           GROUP BY note_id
           ORDER BY note.updated_at DESC
@@ -218,7 +217,7 @@ class SQLiteDatabase {
           INNER JOIN tag         USING (tag_id)
           WHERE data MATCH ?
         """
-        + (fetchDeleted ? "" : "AND NOT is_deleted ") +
+        + (fetchDeleted ? "" : " AND NOT is_deleted ") +
         """
           GROUP BY note_id
           ORDER BY notedata.rank ASC, note.updated_at DESC
@@ -244,10 +243,9 @@ class SQLiteDatabase {
                     let tagIdOpt = try db?.scalar("SELECT tag_id FROM tag WHERE name = ?;", tag) as? Int64;
                     let tagId = tagIdOpt ?? {
                         do {
-                            try db?.run("INSERT INTO tag (name) VALUES (?);", tag); // INSERT doesn't provide last insert ID
+                            return try db?.scalar("INSERT INTO tag (name) VALUES (?) RETURNING tag_id;", tag) as! Int64;
                         } catch {print(error)}
-                        
-                        return db?.lastInsertRowid ?? -1
+                        return -1
                     }();
 
                     try db?.run("INSERT INTO note_to_tag (note_id, tag_id) VALUES (?, ?);", noteId, tagId);

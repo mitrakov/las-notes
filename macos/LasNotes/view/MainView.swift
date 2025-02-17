@@ -3,16 +3,20 @@ import MarkdownUI // don't use "LiYanan2004/MarkdownView", it has performance is
 
 struct MainView: View {
     @EnvironmentObject var vm: MainViewModel
+
+    // bindings
     @State private var currentText = ""              // binding for main text in add/edit mode
     @State private var currentTags = ""              // binding for comma-separated tags in the text field
-    @State private var searchKeyword = ""            // binding for full-text search textfield
+    @State private var currentKeyword = ""           // binding for full-text search textfield
+    @State private var showArchived = false          // binding for whether to show soft-deleted (archived) notes
+
+    // vars
     @State private var currentNoteId: Int64?         // if present, it's an ID of the note in edit mode
     @State private var oldTags = ""                  // old comma-separated tags for edit mode (to calc tags diff)
     @State private var notes: [Note] = []            // in view mode, DB notes array for markdown view
     @State private var search = ""                   // search by tag name (SearchMode.tag), keyword (.keyword) or ID (.id)
     @State private var editorMode = EditorMode.edit  // edit or view mode
-    @State private var searchMode = SearchMode.tag   // how to search notes (by clicking tag, by full-text, etc)
-    @State private var showArchived = false          // whether to show soft-deleted (archived) notes
+    @State private var searchMode = SearchMode.tag   // how to search notes (by clicking tag, by full-text search or by ID)
     
     var body: some View {
         HSplitView {
@@ -41,8 +45,8 @@ struct MainView: View {
                     
                     VStack {
                         // don't use TextField due to bug: https://stackoverflow.com/q/74585499
-                        FocusableTextField(stringValue: $searchKeyword, placeholder: "Global search...", onEnter: {
-                            setReadMode(search: searchKeyword, by: .keyword)
+                        FocusableTextField(stringValue: $currentKeyword, placeholder: "Global search...", onEnter: {
+                            setReadMode(search: currentKeyword, by: .keyword)
                         })
                         .cornerRadius(12)
                         .padding(.top, 4)
@@ -119,10 +123,11 @@ struct MainView: View {
                     case .edit:
                         HSplitView {
                             // LEFT EDITOR
-                            TextEditor(text: $currentText)
+                            TextEditor(text: vm.currentPath != nil ? $currentText : .constant("")) // *)
                                 .font(.system(size: 14, weight: .regular, design: .monospaced))
                                 .foregroundColor(.black)
                                 .padding(4)
+                                .overlay() {if (vm.currentPath == nil) {Rectangle().fill(Color(nsColor: .controlColor))} else {Rectangle().size(.zero)}}
 
                             // RIGHT PREVIEW
                             ScrollView {
@@ -166,8 +171,9 @@ struct MainView: View {
             }
         }
         .preferredColorScheme(.light)
-        .navigationTitle(vm.currentPath ?? "Las Notes")
+        .navigationTitle(vm.currentPath != nil ? "Las Notes (\(vm.currentPath!))" : "Las Notes")
         .disabled(vm.currentPath == nil)
+        .frame(idealWidth: NSScreen.main?.frame.width, idealHeight: NSScreen.main?.frame.height)
     }
     
     private func saveNote() {
@@ -179,7 +185,7 @@ struct MainView: View {
     private func setEditMode(noteId: Int64? = nil, text: String = "", tags: String = "") {
         self.currentText = text
         self.currentTags = tags
-        self.searchKeyword = ""
+        self.currentKeyword = ""
         self.currentNoteId = noteId
         self.oldTags = tags
         self.notes = []
@@ -191,7 +197,7 @@ struct MainView: View {
     private func setReadMode(search: String, by: SearchMode) {
         self.currentText = ""
         self.currentTags = ""
-        self.searchKeyword = searchKeyword
+        self.currentKeyword = currentKeyword
         self.currentNoteId = nil
         self.oldTags = ""
         self.notes = by == .tag     ? vm.searchByTag(search, showArchive: showArchived) :
@@ -214,3 +220,6 @@ enum SearchMode {
 #Preview {
     MainView().environmentObject(MainViewModel())
 }
+
+// 1. dirty hack: TextEditor cannot be disabled in SwiftUI for some reason 🤷‍♀️
+// Therefore if (vm.currentPath == nil) we set .constant("") binding and add an overlay above the TextEditor to hide the cursor

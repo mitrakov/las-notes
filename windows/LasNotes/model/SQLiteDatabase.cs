@@ -164,7 +164,7 @@ internal class SQLiteDatabase {
           INNER JOIN tag         USING (tag_id)
           WHERE note_id IN (SELECT note_id FROM tag INNER JOIN note_to_tag USING (tag_id) WHERE name = @0)
         """
-        + (fetchDeleted ? "" : "AND NOT is_deleted ") +
+        + (fetchDeleted ? "" : " AND NOT is_deleted ") +
         """
           GROUP BY note_id
           ORDER BY note.updated_at DESC

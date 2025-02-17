@@ -1,0 +1,1 @@
+1. On close file (reopen other file) -> cleanup all, there may be a bug with noteId
