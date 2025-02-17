@@ -1,1 +1,3 @@
-1. On close file (reopen other file) -> cleanup all, there may be a bug with noteId
+1. ALL: On close file (reopen other file) -> cleanup all, there may be a bug with noteId
+2. MAC: Performance of Scrollview
+3. WIN: Bold text in Editor

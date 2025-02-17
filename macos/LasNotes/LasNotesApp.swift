@@ -2,8 +2,6 @@ import SwiftUI
 
 let recentFilesKey = "RECENT_FILES"
 
-// bug: performace of ScrollView
-
 // build:
 // 1. Bump version and build numbers in LasNotes -> Targets -> General
 // 2. Product -> Destination -> Any Mac (Apple Silicon, Intel)
