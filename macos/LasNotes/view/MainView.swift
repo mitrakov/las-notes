@@ -1,5 +1,5 @@
 import SwiftUI
-import MarkdownUI // don't use "LiYanan2004/MarkdownView", it has performance issues (https://github.com/LiYanan2004/MarkdownView/issues/36)
+import MarkdownUI // *)
 
 struct MainView: View {
     @EnvironmentObject var vm: MainViewModel
@@ -44,7 +44,7 @@ struct MainView: View {
                     .buttonStyle(PlainButtonStyle())
                     
                     VStack {
-                        // don't use TextField due to bug: https://stackoverflow.com/q/74585499
+                        // ***)
                         FocusableTextField(stringValue: $currentKeyword, placeholder: "Global search...", onEnter: {
                             setReadMode(search: currentKeyword, by: .keyword)
                         })
@@ -123,7 +123,7 @@ struct MainView: View {
                     case .edit:
                         HSplitView {
                             // LEFT EDITOR
-                            TextEditor(text: vm.currentPath != nil ? $currentText : .constant("")) // *)
+                            TextEditor(text: vm.currentPath != nil ? $currentText : .constant("")) // **)
                                 .font(.system(size: 14, weight: .regular, design: .monospaced))
                                 .foregroundColor(.black)
                                 .padding(4)
@@ -221,5 +221,9 @@ enum SearchMode {
     MainView().environmentObject(MainViewModel())
 }
 
-// 1. dirty hack: TextEditor cannot be disabled in SwiftUI for some reason 🤷‍♀️
+// *) don't use "LiYanan2004/MarkdownView", it has performance issues (https://github.com/LiYanan2004/MarkdownView/issues/36)
+//
+// **) dirty hack: TextEditor cannot be disabled in SwiftUI for some reason 🤷‍♀️
 // Therefore if (vm.currentPath == nil) we set .constant("") binding and add an overlay above the TextEditor to hide the cursor
+//
+// ***) don't use TextField due to bug: https://stackoverflow.com/q/74585499
