@@ -8,7 +8,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     volumes:
       - ./dbdata:/var/lib/mysql
-#      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
   wordpress:
     depends_on:
@@ -47,4 +47,4 @@ services:
     volumes:
       - ./cbdata:/etc/letsencrypt
       - ./wpdata:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email mitrakov-artem@yandex.ru --agree-tos --force-renewal -d lasnotes.com --renew-hook "docker compose restart webserver"
+    command: certonly --webroot --webroot-path=/var/www/html --email mitrakov-artem@yandex.ru --agree-tos --staging -d lasnotes.com --renew-hook "docker compose restart webserver"

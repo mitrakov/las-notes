@@ -1,5 +1,12 @@
-# Cron for certbot
-crontab -e
-```
-59 10 * * * docker compose run --rm certbot renew > /root/cron.log 2>&1
-```
+# How to migrate
+- make sure your host is connected to domain lasnotes.com
+- open ports 80 and 443
+- install docker and docker-compose-v2
+- copy all config files, unpack wpdata/ folder from the 7z archive
+- set up a new strong DB password in `.env`
+- run: `docker-compose up`, check that SSL certificates issued successfully
+- replace `--staging` with `--force-renewal` in `compose.yml`
+- remove or comment out `dump.sql` volume in `compose.yml`
+- run `docker-compose up -d`
+- go to https://lasnotes.com, add upload installer files (*.dmg, *.msi) to Media
+- set up cron (`crontab -e`): `59 10 * * * docker compose run --rm certbot renew > /root/cron.log 2>&1`
