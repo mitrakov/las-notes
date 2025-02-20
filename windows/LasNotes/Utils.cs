@@ -7,6 +7,6 @@ internal static class Extensions {
 
     internal static Image BytesToImage(byte[] blob) {
         using var s = new MemoryStream(blob);
-        return new Bitmap(s, false);
+        return new Bitmap(s, false); // bug in VS Form Designer. If you see an Exception here, check MainForm.resx file in Git
     }
 }
