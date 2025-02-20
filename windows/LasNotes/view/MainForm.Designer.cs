@@ -104,7 +104,7 @@ namespace LasNotes {
             checkShowArchive.Name = "checkShowArchive";
             checkShowArchive.Size = new Size(118, 24);
             checkShowArchive.TabIndex = 2;
-            checkShowArchive.Text = "Show archive";
+            checkShowArchive.Text = resources.GetString("checkShowArchive");
             checkShowArchive.UseVisualStyleBackColor = true;
             checkShowArchive.CheckedChanged += OnCheckboxShowArchiveChange;
             // 
