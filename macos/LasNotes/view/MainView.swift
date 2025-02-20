@@ -36,7 +36,7 @@ struct MainView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
                                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: -5, y: 5)
                             
-                            Text("New")
+                            Text("new")
                                 .foregroundColor(.black)
                         }
                     }
@@ -45,14 +45,14 @@ struct MainView: View {
                     
                     VStack {
                         // ***)
-                        FocusableTextField(stringValue: $currentKeyword, placeholder: "Global search...", onEnter: {
+                        FocusableTextField(stringValue: $currentKeyword, placeholder: "global-search", onEnter: {
                             setReadMode(search: currentKeyword, by: .keyword)
                         })
                         .cornerRadius(12)
                         .padding(.top, 4)
                         .padding(.trailing, 8)
 
-                        Toggle("Show archive", isOn: $showArchived)
+                        Toggle("show-archive", isOn: $showArchived)
                             .toggleStyle(SwitchToggleStyle(tint: .red))
                             .onChange(of: showArchived) { value in
                                 setReadMode(search: search, by: searchMode) // update
@@ -143,9 +143,9 @@ struct MainView: View {
                         Spacer()
                         // BOTTOM PANEL
                         HStack {
-                            Text("Tags:")
+                            Text("tags")
                             // don't use TextField due to bug: https://stackoverflow.com/q/74585499
-                            FocusableTextField(stringValue: $currentTags, placeholder: "Tag1, Tag2, ...", onEnter: {
+                            FocusableTextField(stringValue: $currentTags, placeholder: "tag1-tag2", onEnter: {
                                 saveNote()
                             })
                             .frame(maxWidth: 200)
@@ -155,7 +155,7 @@ struct MainView: View {
                                 saveNote()
                             } label: {
                                 Label {
-                                    Text(currentNoteId == nil ? "Add Note" : "Update Note")
+                                    Text(currentNoteId == nil ? "add-note" : "update-note")
                                         .font(.system(size: 13, weight: .semibold))
                                 } icon: {
                                     Image(systemName: currentNoteId == nil ? "plus.circle" : "checkmark.seal")
@@ -171,7 +171,7 @@ struct MainView: View {
             }
         }
         .preferredColorScheme(.light)
-        .navigationTitle(vm.currentPath != nil ? "Las Notes (\(vm.currentPath!))" : "Las Notes")
+        .navigationTitle(vm.currentPath != nil ? "las-notes-\(vm.currentPath!)" : "las-notes")
         .disabled(vm.currentPath == nil)
         .frame(idealWidth: NSScreen.main?.frame.width, idealHeight: NSScreen.main?.frame.height)
     }

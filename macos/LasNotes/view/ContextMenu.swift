@@ -30,7 +30,7 @@ struct ContextMenu: View {
                         .clipShape(Circle())
                 })
                 .buttonStyle(PlainButtonStyle())
-                .help("Restore from archive")
+                .help("restore-note")
                 .padding(.trailing, 16)
             } else {
                 Button(action: onEdit, label: {
@@ -42,7 +42,7 @@ struct ContextMenu: View {
                         .clipShape(Circle())
                 })
                 .buttonStyle(PlainButtonStyle())
-                .help("Edit note")
+                .help("edit-note")
 
                 Button(action: onArchive, label: {
                     Image(systemName: "archivebox.circle")
@@ -53,7 +53,7 @@ struct ContextMenu: View {
                         .clipShape(Circle())
                 })
                 .buttonStyle(PlainButtonStyle())
-                .help("Archive note")
+                .help("archive-note")
                 
                 Button (action: onDelete, label: {
                     Image(systemName: "trash.slash")
@@ -64,7 +64,7 @@ struct ContextMenu: View {
                         .clipShape(Circle())
                 })
                 .buttonStyle(PlainButtonStyle())
-                .help("Delete note")
+                .help("delete-note")
                 .padding(.trailing, 16)
             }
         }

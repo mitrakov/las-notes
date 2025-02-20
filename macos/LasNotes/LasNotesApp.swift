@@ -26,7 +26,7 @@ struct lasNotesApp: App {
             CommandGroup(replacing: .windowList) {}     // rm "Window -> Bring All to Front"
             CommandGroup(replacing: .help) {}           // rm "Help   -> App Help"
             CommandGroup(replacing: .newItem) {
-                Menu("Open Recent") {
+                Menu("menu-open-recent") {
                     ForEach(recentFiles, id: \.self) { path in
                         Button(path) {
                             vm.openFile(path)
@@ -35,16 +35,16 @@ struct lasNotesApp: App {
                     }
                 }
                 Divider()
-                Button("New File...") {
+                Button("menu-new") {
                     vm.newFile()
                     updateMenu()
                 }
-                Button("Open...") {
+                Button("menu-open") {
                     vm.openFile()
                     updateMenu()
                 }
                 Divider()
-                Button("Close File") {
+                Button("menu-close") {
                     vm.closeFile()
                 }
             }
