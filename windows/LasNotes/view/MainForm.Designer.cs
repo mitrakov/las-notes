@@ -74,7 +74,7 @@ namespace LasNotes {
             panelLeft.Dock = DockStyle.Left;
             panelLeft.Location = new Point(0, 28);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(200, 693);
+            panelLeft.Size = new Size(229, 693);
             panelLeft.TabIndex = 0;
             // 
             // tagsPanel
@@ -83,7 +83,7 @@ namespace LasNotes {
             tagsPanel.Dock = DockStyle.Fill;
             tagsPanel.Location = new Point(0, 70);
             tagsPanel.Name = "tagsPanel";
-            tagsPanel.Size = new Size(200, 623);
+            tagsPanel.Size = new Size(229, 623);
             tagsPanel.TabIndex = 3;
             // 
             // panelTop
@@ -94,7 +94,7 @@ namespace LasNotes {
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(200, 70);
+            panelTop.Size = new Size(229, 70);
             panelTop.TabIndex = 0;
             // 
             // checkShowArchive
@@ -102,7 +102,7 @@ namespace LasNotes {
             checkShowArchive.AutoSize = true;
             checkShowArchive.Location = new Point(76, 36);
             checkShowArchive.Name = "checkShowArchive";
-            checkShowArchive.Size = new Size(118, 24);
+            checkShowArchive.Size = new Size(120, 24);
             checkShowArchive.TabIndex = 2;
             checkShowArchive.Text = resources.GetString("show-archive");
             checkShowArchive.UseVisualStyleBackColor = true;
@@ -110,10 +110,10 @@ namespace LasNotes {
             // 
             // textboxSearch
             // 
-            textboxSearch.Location = new Point(66, 3);
+            textboxSearch.Location = new Point(79, 3);
             textboxSearch.Name = "textboxSearch";
             textboxSearch.PlaceholderText = resources.GetString("global-search");
-            textboxSearch.Size = new Size(131, 27);
+            textboxSearch.Size = new Size(144, 27);
             textboxSearch.TabIndex = 1;
             textboxSearch.WordWrap = false;
             textboxSearch.KeyDown += OnTextboxSearchKeyDown;
@@ -123,7 +123,7 @@ namespace LasNotes {
             buttonNew.ImageList = imagesNew;
             buttonNew.Location = new Point(3, 3);
             buttonNew.Name = "buttonNew";
-            buttonNew.Size = new Size(57, 59);
+            buttonNew.Size = new Size(67, 59);
             buttonNew.TabIndex = 0;
             buttonNew.Text = resources.GetString("new");
             buttonNew.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -140,9 +140,9 @@ namespace LasNotes {
             // 
             contentPanel.Controls.Add(editModePanel);
             contentPanel.Dock = DockStyle.Fill;
-            contentPanel.Location = new Point(200, 28);
+            contentPanel.Location = new Point(229, 28);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(806, 693);
+            contentPanel.Size = new Size(777, 693);
             contentPanel.TabIndex = 4;
             // 
             // editModePanel
@@ -152,7 +152,7 @@ namespace LasNotes {
             editModePanel.Dock = DockStyle.Fill;
             editModePanel.Location = new Point(0, 0);
             editModePanel.Name = "editModePanel";
-            editModePanel.Size = new Size(806, 693);
+            editModePanel.Size = new Size(777, 693);
             editModePanel.TabIndex = 2;
             // 
             // editSplitPanel
@@ -164,8 +164,8 @@ namespace LasNotes {
             // editSplitPanel.Panel1
             // 
             editSplitPanel.Panel1.Controls.Add(textboxEdit);
-            editSplitPanel.Size = new Size(806, 653);
-            editSplitPanel.SplitterDistance = 403;
+            editSplitPanel.Size = new Size(777, 653);
+            editSplitPanel.SplitterDistance = 388;
             editSplitPanel.TabIndex = 1;
             // 
             // textboxEdit
@@ -174,7 +174,7 @@ namespace LasNotes {
             textboxEdit.Font = new Font("Courier New", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             textboxEdit.Location = new Point(0, 0);
             textboxEdit.Name = "textboxEdit";
-            textboxEdit.Size = new Size(403, 653);
+            textboxEdit.Size = new Size(388, 653);
             textboxEdit.TabIndex = 5;
             textboxEdit.Text = "";
             textboxEdit.TextChanged += OnTextboxEditChange;
@@ -187,7 +187,7 @@ namespace LasNotes {
             panelBottom.Dock = DockStyle.Bottom;
             panelBottom.Location = new Point(0, 653);
             panelBottom.Name = "panelBottom";
-            panelBottom.Size = new Size(806, 40);
+            panelBottom.Size = new Size(777, 40);
             panelBottom.TabIndex = 6;
             // 
             // labelTags
@@ -202,7 +202,7 @@ namespace LasNotes {
             // 
             // textboxTags
             // 
-            textboxTags.Location = new Point(61, 6);
+            textboxTags.Location = new Point(96, 7);
             textboxTags.Name = "textboxTags";
             textboxTags.PlaceholderText = resources.GetString("tag1-tag2");
             textboxTags.Size = new Size(248, 27);
@@ -213,7 +213,7 @@ namespace LasNotes {
             // 
             buttonSave.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonSave.ImageList = imagesSave;
-            buttonSave.Location = new Point(325, 5);
+            buttonSave.Location = new Point(375, 5);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(140, 29);
             buttonSave.TabIndex = 2;
@@ -248,49 +248,49 @@ namespace LasNotes {
             // openRecentMenuItem
             // 
             openRecentMenuItem.Name = "openRecentMenuItem";
-            openRecentMenuItem.Size = new Size(177, 26);
+            openRecentMenuItem.Size = new Size(188, 26);
             openRecentMenuItem.Text = resources.GetString("menu-open-recent");
             // 
             // separator1
             // 
             separator1.Name = "separator1";
-            separator1.Size = new Size(174, 6);
+            separator1.Size = new Size(185, 6);
             // 
             // newFileMenuItem
             // 
             newFileMenuItem.Name = "newFileMenuItem";
-            newFileMenuItem.Size = new Size(177, 26);
+            newFileMenuItem.Size = new Size(188, 26);
             newFileMenuItem.Text = resources.GetString("menu-new");
             newFileMenuItem.Click += OnNewFileClick;
             // 
             // openMenuItem
             // 
             openMenuItem.Name = "openMenuItem";
-            openMenuItem.Size = new Size(177, 26);
+            openMenuItem.Size = new Size(188, 26);
             openMenuItem.Text = resources.GetString("menu-open");
             openMenuItem.Click += OnOpenFileClick;
             // 
             // separator2
             // 
             separator2.Name = "separator2";
-            separator2.Size = new Size(174, 6);
+            separator2.Size = new Size(185, 6);
             // 
             // closeFileMenuItem
             // 
             closeFileMenuItem.Name = "closeFileMenuItem";
-            closeFileMenuItem.Size = new Size(177, 26);
+            closeFileMenuItem.Size = new Size(188, 26);
             closeFileMenuItem.Text = resources.GetString("menu-close");
             closeFileMenuItem.Click += OnCloseFileClick;
             // 
             // separator3
             // 
             separator3.Name = "separator3";
-            separator3.Size = new Size(174, 6);
+            separator3.Size = new Size(185, 6);
             // 
             // quitMenuItem
             // 
             quitMenuItem.Name = "quitMenuItem";
-            quitMenuItem.Size = new Size(177, 26);
+            quitMenuItem.Size = new Size(188, 26);
             quitMenuItem.Text = resources.GetString("menu-exit");
             quitMenuItem.Click += OnQuitClick;
             // 
@@ -304,7 +304,7 @@ namespace LasNotes {
             // aboutMenuItem
             // 
             aboutMenuItem.Name = "aboutMenuItem";
-            aboutMenuItem.Size = new Size(174, 26);
+            aboutMenuItem.Size = new Size(210, 26);
             aboutMenuItem.Text = resources.GetString("menu-about");
             aboutMenuItem.Click += OnAboutClick;
             // 
