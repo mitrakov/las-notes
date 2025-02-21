@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <data name="checkShowArchive">
+  <data name="add-note">
+    <value>Добавить заметку</value>
+  </data>
+    <data name="archive-note">
+    <value>Архивировать заметку</value>
+  </data>
+  <data name="delete-note">
+    <value>Удалить заметку</value>
+  </data>
+  <data name="edit-note">
+    <value>Редактировать заметку</value>
+  </data>
+  <data name="menu-close">
+    <value>Закрыть файл</value>
+  </data>
+  <data name="menu-new">
+    <value>Новый файл...</value>
+  </data>
+  <data name="menu-open">
+    <value>Открыть файл...</value>
+  </data>
+  <data name="menu-open-recent">
+    <value>Открыть недавние</value>
+  </data>
+  <data name="new">
+    <value>Новая</value>
+  </data>
+  <data name="restore-note">
+    <value>Восстановить архив</value>
+  </data>
+  <data name="show-archive">
     <value>Показать архив</value>
+  </data>
+  <data name="global-search">
+    <value>Глобальный поиск</value>
+  </data>
+  <data name="tags">
+    <value>Теги:</value>
+  </data>
+  <data name="tag1-tag2">
+    <value>Тег1, Тег2, ...</value>
+  </data>
+  <data name="update-note">
+    <value>Обновить заметку</value>
+  </data>
+  <data name="menu-file">
+    <value>Файл</value>
+  </data>
+  <data name="menu-exit">
+    <value>Выход</value>
+  </data>
+  <data name="menu-help">
+    <value>Помощь</value>
+  </data>
+  <data name="menu-about">
+    <value>О программе...</value>
   </data>
 </root>

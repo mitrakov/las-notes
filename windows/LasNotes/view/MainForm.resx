@@ -966,7 +966,61 @@
   <data name="mark-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>images\mark-circle.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkShowArchive">
+    <data name="add-note">
+    <value>Add Note</value>
+  </data>
+    <data name="archive-note">
+    <value>Archive Note</value>
+  </data>
+  <data name="delete-note">
+    <value>Remove Note</value>
+  </data>
+  <data name="edit-note">
+    <value>Edit Note</value>
+  </data>
+  <data name="menu-close">
+    <value>Close File</value>
+  </data>
+  <data name="menu-new">
+    <value>New File...</value>
+  </data>
+  <data name="menu-open">
+    <value>Open File...</value>
+  </data>
+  <data name="menu-open-recent">
+    <value>Open Recent</value>
+  </data>
+  <data name="new">
+    <value>New</value>
+  </data>
+  <data name="restore-note">
+    <value>Restore from Archive</value>
+  </data>
+  <data name="show-archive">
     <value>Show Archive</value>
+  </data>
+  <data name="global-search">
+    <value>Global search</value>
+  </data>
+  <data name="tags">
+    <value>Tags:</value>
+  </data>
+  <data name="tag1-tag2">
+    <value>Tag1, Tag2, ...</value>
+  </data>
+  <data name="update-note">
+    <value>Update Note</value>
+  </data>
+  <data name="menu-file">
+    <value>File</value>
+  </data>
+  <data name="menu-exit">
+    <value>Quit Las Notes</value>
+  </data>
+  <data name="menu-help">
+    <value>Help</value>
+  </data>
+  <data name="menu-about">
+    <value>About Las Notes...</value>
   </data>
 </root>

@@ -104,7 +104,7 @@ namespace LasNotes {
             checkShowArchive.Name = "checkShowArchive";
             checkShowArchive.Size = new Size(118, 24);
             checkShowArchive.TabIndex = 2;
-            checkShowArchive.Text = resources.GetString("checkShowArchive");
+            checkShowArchive.Text = resources.GetString("show-archive");
             checkShowArchive.UseVisualStyleBackColor = true;
             checkShowArchive.CheckedChanged += OnCheckboxShowArchiveChange;
             // 
@@ -112,7 +112,7 @@ namespace LasNotes {
             // 
             textboxSearch.Location = new Point(66, 3);
             textboxSearch.Name = "textboxSearch";
-            textboxSearch.PlaceholderText = "Global search...";
+            textboxSearch.PlaceholderText = resources.GetString("global-search");
             textboxSearch.Size = new Size(131, 27);
             textboxSearch.TabIndex = 1;
             textboxSearch.WordWrap = false;
@@ -125,7 +125,7 @@ namespace LasNotes {
             buttonNew.Name = "buttonNew";
             buttonNew.Size = new Size(57, 59);
             buttonNew.TabIndex = 0;
-            buttonNew.Text = "New";
+            buttonNew.Text = resources.GetString("new");
             buttonNew.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonNew.UseVisualStyleBackColor = true;
             buttonNew.Click += OnNewButtonClick;
@@ -198,13 +198,13 @@ namespace LasNotes {
             labelTags.Name = "labelTags";
             labelTags.Size = new Size(47, 23);
             labelTags.TabIndex = 3;
-            labelTags.Text = "Tags:";
+            labelTags.Text = resources.GetString("tags");
             // 
             // textboxTags
             // 
             textboxTags.Location = new Point(61, 6);
             textboxTags.Name = "textboxTags";
-            textboxTags.PlaceholderText = "Tag1, Tag2, ...";
+            textboxTags.PlaceholderText = resources.GetString("tag1-tag2");
             textboxTags.Size = new Size(248, 27);
             textboxTags.TabIndex = 1;
             textboxTags.KeyDown += OnTextboxTagsKeyDown;
@@ -217,7 +217,7 @@ namespace LasNotes {
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(140, 29);
             buttonSave.TabIndex = 2;
-            buttonSave.Text = "Add Note";
+            buttonSave.Text = resources.GetString("add-note");
             buttonSave.TextAlign = ContentAlignment.MiddleRight;
             buttonSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSave.UseVisualStyleBackColor = true;
@@ -243,13 +243,13 @@ namespace LasNotes {
             fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openRecentMenuItem, separator1, newFileMenuItem, openMenuItem, separator2, closeFileMenuItem, separator3, quitMenuItem });
             fileMenuItem.Name = "fileMenuItem";
             fileMenuItem.Size = new Size(46, 24);
-            fileMenuItem.Text = "File";
+            fileMenuItem.Text = resources.GetString("menu-file");
             // 
             // openRecentMenuItem
             // 
             openRecentMenuItem.Name = "openRecentMenuItem";
             openRecentMenuItem.Size = new Size(177, 26);
-            openRecentMenuItem.Text = "Open Recent";
+            openRecentMenuItem.Text = resources.GetString("menu-open-recent");
             // 
             // separator1
             // 
@@ -260,14 +260,14 @@ namespace LasNotes {
             // 
             newFileMenuItem.Name = "newFileMenuItem";
             newFileMenuItem.Size = new Size(177, 26);
-            newFileMenuItem.Text = "New File...";
+            newFileMenuItem.Text = resources.GetString("menu-new");
             newFileMenuItem.Click += OnNewFileClick;
             // 
             // openMenuItem
             // 
             openMenuItem.Name = "openMenuItem";
             openMenuItem.Size = new Size(177, 26);
-            openMenuItem.Text = "Open...";
+            openMenuItem.Text = resources.GetString("menu-open");
             openMenuItem.Click += OnOpenFileClick;
             // 
             // separator2
@@ -279,7 +279,7 @@ namespace LasNotes {
             // 
             closeFileMenuItem.Name = "closeFileMenuItem";
             closeFileMenuItem.Size = new Size(177, 26);
-            closeFileMenuItem.Text = "Close File";
+            closeFileMenuItem.Text = resources.GetString("menu-close");
             closeFileMenuItem.Click += OnCloseFileClick;
             // 
             // separator3
@@ -291,7 +291,7 @@ namespace LasNotes {
             // 
             quitMenuItem.Name = "quitMenuItem";
             quitMenuItem.Size = new Size(177, 26);
-            quitMenuItem.Text = "Quit Las Notes";
+            quitMenuItem.Text = resources.GetString("menu-exit");
             quitMenuItem.Click += OnQuitClick;
             // 
             // helpMenuItem
@@ -299,13 +299,13 @@ namespace LasNotes {
             helpMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutMenuItem });
             helpMenuItem.Name = "helpMenuItem";
             helpMenuItem.Size = new Size(55, 24);
-            helpMenuItem.Text = "Help";
+            helpMenuItem.Text = resources.GetString("menu-help");
             // 
             // aboutMenuItem
             // 
             aboutMenuItem.Name = "aboutMenuItem";
             aboutMenuItem.Size = new Size(174, 26);
-            aboutMenuItem.Text = "About Las Notes";
+            aboutMenuItem.Text = resources.GetString("menu-about");
             aboutMenuItem.Click += OnAboutClick;
             // 
             // MainForm
