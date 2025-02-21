@@ -3,15 +3,6 @@
   <data name="add-note">
     <value>Добавить заметку</value>
   </data>
-    <data name="archive-note">
-    <value>Архивировать заметку</value>
-  </data>
-  <data name="delete-note">
-    <value>Удалить заметку</value>
-  </data>
-  <data name="edit-note">
-    <value>Редактировать заметку</value>
-  </data>
   <data name="menu-close">
     <value>Закрыть файл</value>
   </data>

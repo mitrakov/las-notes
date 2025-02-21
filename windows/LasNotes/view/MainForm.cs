@@ -38,7 +38,7 @@ internal partial class MainForm : Form {
         if (updateTagBtns) {
             tagsPanel.Controls.Clear();
             tagsPanel.Controls.AddRange(vm.GetTags().Select(tag => {
-                var btn = new Button { Text = tag, Size = new(170, 30), TextAlign = ContentAlignment.MiddleLeft };
+                var btn = new Button { Text = tag, Size = new(200, 30), TextAlign = ContentAlignment.MiddleLeft };
                 btn.Click += (s, e) => SetReadMode(tag, SearchMode.tag);
                 return btn;
             }).ToArray());
@@ -62,7 +62,7 @@ internal partial class MainForm : Form {
         markdownMulti.SetMarkdown(ctx);
 
         // bottom button
-        buttonSave.Text = currentNoteId == null ? " Add Note" : "Update Note";
+        buttonSave.Text = resources.GetString(currentNoteId == null ? "add-note" : "update-note");
         buttonSave.ImageIndex = currentNoteId == null ? 0 : 1;
 
         // form

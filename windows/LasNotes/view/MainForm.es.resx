@@ -3,15 +3,6 @@
   <data name="add-note">
     <value>Añadir Nota</value>
   </data>
-    <data name="archive-note">
-    <value>Archivar Nota</value>
-  </data>
-  <data name="delete-note">
-    <value>Eliminar Nota</value>
-  </data>
-  <data name="edit-note">
-    <value>Editar Nota</value>
-  </data>
   <data name="menu-close">
     <value>Cerrar Archivo</value>
   </data>
@@ -43,7 +34,7 @@
     <value>Etiqueta1, Etiqueta2, ...</value>
   </data>
   <data name="update-note">
-    <value>Actualizar Note</value>
+    <value>Actualizar Nota</value>
   </data>
   <data name="menu-file">
     <value>Archivo</value>

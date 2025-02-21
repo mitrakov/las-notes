@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows.Forms.Integration;
 using MdControl;
 
@@ -27,7 +28,7 @@ namespace LasNotes {
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panelLeft = new Panel();
             tagsPanel = new FlowLayoutPanel();
             panelTop = new Panel();
@@ -215,7 +216,7 @@ namespace LasNotes {
             buttonSave.ImageList = imagesSave;
             buttonSave.Location = new Point(375, 5);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(140, 29);
+            buttonSave.Size = new Size(190, 29);
             buttonSave.TabIndex = 2;
             buttonSave.Text = resources.GetString("add-note");
             buttonSave.TextAlign = ContentAlignment.MiddleRight;
@@ -339,6 +340,7 @@ namespace LasNotes {
 
         #endregion
 
+        private ComponentResourceManager resources;
         private ElementHost wpfHostSingle;
         private ElementHost wpfHostMulti;
         private MarkdownMulti markdownMulti;

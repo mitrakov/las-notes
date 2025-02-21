@@ -969,15 +969,6 @@
     <data name="add-note">
     <value>Add Note</value>
   </data>
-    <data name="archive-note">
-    <value>Archive Note</value>
-  </data>
-  <data name="delete-note">
-    <value>Remove Note</value>
-  </data>
-  <data name="edit-note">
-    <value>Edit Note</value>
-  </data>
   <data name="menu-close">
     <value>Close File</value>
   </data>

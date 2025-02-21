@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ public record class ContextMenu(string Markdown, bool IsArchived, string[] Tags,
 
 public partial class MarkdownMulti : UserControl {
     public MarkdownMulti() => InitializeComponent();
+    private static readonly ComponentResourceManager resources = new (typeof(MarkdownMulti));
 
     public void SetMarkdown(IEnumerable<ContextMenu> markdowns) {
         MainStackPanel.Children.Clear();
@@ -37,9 +39,9 @@ public partial class MarkdownMulti : UserControl {
             if (md.IsArchived)
                 tagsAndButtons.Children.Add(MakeButton(i++, "#90ee90", "restore.png", "Restore from archive", md.OnRestore));
             else {
-                tagsAndButtons.Children.Add(MakeButton(i++, "#8eb5f7", "edit.png", "Edit note", md.OnEdit));
-                tagsAndButtons.Children.Add(MakeButton(i++, "#fcc18a", "archive.png", "Archive note", md.OnArchive));
-                tagsAndButtons.Children.Add(MakeButton(i++, "#ff655a", "delete.png", "Delete note", md.OnDelete));
+                tagsAndButtons.Children.Add(MakeButton(i++, "#8eb5f7", "edit.png", "edit-note", md.OnEdit));
+                tagsAndButtons.Children.Add(MakeButton(i++, "#fcc18a", "archive.png", "archive-note", md.OnArchive));
+                tagsAndButtons.Children.Add(MakeButton(i++, "#ff655a", "delete.png", "delete-note", md.OnDelete));
             }
 
             // main grid
@@ -74,13 +76,13 @@ public partial class MarkdownMulti : UserControl {
         return border;
     }
 
-    private static UIElement MakeButton(int columnIdx, string hexColour, string imageName, string hint, Action onClick) {
+    private static UIElement MakeButton(int columnIdx, string hexColour, string imageName, string hintKey, Action onClick) {
         var border = new Border {
             CornerRadius = new(16),
             Background = new BrushConverter().ConvertFromString(hexColour) as Brush,
             Margin = new(4),
             Padding = new(6),
-            ToolTip = hint,
+            ToolTip = resources.GetString(hintKey),
             Child = new Image {
                 Source = new BitmapImage(new Uri($"/MdControl;component/images/{imageName}", UriKind.Relative)),
                 VerticalAlignment = VerticalAlignment.Center,
