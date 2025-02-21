@@ -122,7 +122,7 @@ internal partial class MainForm : Form {
 
     private void OnAboutClick(object sender, EventArgs e) {
         var info = Assembly.GetExecutingAssembly().GetName();
-        var msg = $"{info.Name} v{info.Version}\nAuthor: Artem Mitrakov (mitrakov-artem@yandex.ru)\nLicensed under MIT © All rights reserved";
+        var msg = $"{info.Name} v{info.Version}\n{resources.GetString("msg-about")}";
         MessageBox.Show(msg, "Las Notes", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 

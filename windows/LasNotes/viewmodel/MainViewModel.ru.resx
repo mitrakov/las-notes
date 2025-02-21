@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="msg-archive-note">
+    <value>Уверены, что хотите архивировать эту заметку?\nОна может быть восстановлена позже</value>
+  </data>
+  <data name="msg-delete-note">
+    <value>Уверены, что хотите удалить эту заметку?</value>
+  </data>
+  <data name="msg-tag-needed-hdr">
+    <value>Требуется тег</value>
+  </data>
+  <data name="msg-tag-needed-txt">
+    <value>Добавьте хотя бы 1 тег, напр. "Работа" или "Дом"</value>
+  </data>
+  <data name="msg-note-added">
+    <value>Заметка добавлена</value>
+  </data>
+  <data name="msg-note-updated">
+    <value>Заметка обновлена</value>
+  </data>
+  <data name="msg-done">
+    <value>Готово</value>
+  </data>
+  <data name="msg-file-not-found">
+    <value>Файл не найден:\n</value>
+  </data>
+  <data name="msg-file-exists">
+    <value>Файл уже существует:\n{path}\n\nВы хотите заменить его?\nЭто удалит все данные</value>
+  </data>
+  <data name="msg-warning">
+    <value>Предупреждение</value>
+  </data>
+  <data name="msg-error">
+    <value>Ошибка</value>
+  </data>
+  <data name="dlg-select-file">
+    <value>Выберите файл БД</value>
+  </data>
+  <data name="dlg-new-file">
+    <value>Новый файл БД</value>
+  </data>
+    <data name="dlg-filter-open">
+    <value>Файлы БД Las Notes (*.db)|*.db|Все файлы (*.*)|*.*</value>
+  </data>
+  <data name="dlg-filter-save">
+    <value>Файлы БД Las Notes (*.db)|*.db</value>
+  </data>
+</root>

@@ -6,6 +6,7 @@ internal class MainViewModel : INotifyPropertyChanged {
     public event PropertyChangedEventHandler? PropertyChanged;
 
     private readonly SQLiteDatabase db = new();
+    private readonly ComponentResourceManager resources = new (typeof(MainViewModel));
     internal string? CurrentPath { get; set; }
 
     internal void OpenFile(string path) {
@@ -16,23 +17,23 @@ internal class MainViewModel : INotifyPropertyChanged {
             AddToRecentFilesList(path);
             FirePropertyChanged();
         } else {
-            MessageBox.Show($"File not found:\n{path}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"{resources.GetString("msg-file-not-found")}\n{path}", resources.GetString("msg-error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             RemoveFromRecentFilesList(path);
         }
     }
 
     internal void OpenFile() {
-        var dialog = new OpenFileDialog() { Title = "Select a DB file", Filter = "Las Notes DB files (*.db)|*.db|All Files (*.*)|*.*" };
+        var dialog = new OpenFileDialog() { Title = resources.GetString("dlg-select-file"), Filter = resources.GetString("dlg-filter-open") };
         if (dialog.ShowDialog() == DialogResult.OK)
             OpenFile(dialog.FileName);
     }
 
     internal void NewFile() {
-        var dialog = new SaveFileDialog() { Title = "New DB file", FileName = "mydb", DefaultExt = "db", Filter = "Las Notes DB files (*.db)|*.db" };
+        var dialog = new SaveFileDialog() { Title = resources.GetString("dlg-new-file"), FileName = "mydb", DefaultExt = "db", Filter = resources.GetString("dlg-filter-save") };
         if (dialog.ShowDialog() == DialogResult.OK) {
             var path = dialog.FileName;
             if (File.Exists(path)) {
-                if (MessageBox.Show($"File already exists:\n{path}\n\nDo you want to erase it?\nIt will remove all data", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation) == DialogResult.Yes) {
+                if (MessageBox.Show(resources.GetString("dlg-file-exists"), resources.GetString("msg-warning"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation) == DialogResult.Yes) {
                     db.CloseDb();
                     File.Delete(path);
                 } else return;
@@ -83,7 +84,7 @@ internal class MainViewModel : INotifyPropertyChanged {
 
     internal void ArchiveNoteById(long noteId) {
         if (!db.IsConnected) return;
-        if (MessageBox.Show("Are you sure you want to archive this note?\nIt can be restored later", "Archive note", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+        if (MessageBox.Show(resources.GetString("msg-archive-note"), "Archive note", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             db.SoftDeleteNote(noteId, true);
     }
 
@@ -94,7 +95,7 @@ internal class MainViewModel : INotifyPropertyChanged {
 
     internal void DeleteNoteById(long noteId) {
         if (!db.IsConnected) return;
-        if (MessageBox.Show("Are you sure you want to delete this note?", "Delete note", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+        if (MessageBox.Show(resources.GetString("msg-delete-note"), "Delete note", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             db.DeleteNote(noteId);
     }
 
@@ -103,20 +104,20 @@ internal class MainViewModel : INotifyPropertyChanged {
         if (!db.IsConnected) return null;
         if (data.Length == 0) return null;
         if (tags.Length == 0) {
-            MessageBox.Show("Please add at least 1 tag\ne.g. \"Work\" or \"TODO\"", "Tag required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(resources.GetString("msg-tag-needed-txt"), resources.GetString("msg-tag-needed-hdr"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
         if (noteId is long id) {
             // UPDATE
             db.UpdateNote(id, data);
             UpdateTags(id, newTags, oldTags);
-            MessageBox.Show("Note updated", "Done");
+            MessageBox.Show(resources.GetString("msg-note-updated"), resources.GetString("msg-done"));
             return noteId;
         } else {
             // INSERT
             var newNoteId = db.InsertNote(data);
             db.LinkTagsToNote(newNoteId, tags);
-            MessageBox.Show("Note added", "Done");
+            MessageBox.Show(resources.GetString("msg-note-added"), resources.GetString("msg-done"));
             return newNoteId;
         }
     }

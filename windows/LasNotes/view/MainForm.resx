@@ -1014,4 +1014,7 @@
   <data name="menu-about">
     <value>About Las Notes...</value>
   </data>
+  <data name="msg-about">
+    <value>Author: Artem Mitrakov (mitrakov-artem@yandex.ru)\nLicensed under MIT © All rights reserved</value>
+  </data>
 </root>

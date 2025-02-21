@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="msg-archive-note">
+    <value>¿Estás seguro de que deseas archivar esta nota?\nSe puede restaurar más tarde</value>
+  </data>
+  <data name="msg-delete-note">
+    <value>"¿Estás seguro que deseas eliminar esta nota?"</value>
+  </data>
+  <data name="msg-tag-needed-hdr">
+    <value>Etiqueta requerida</value>
+  </data>
+  <data name="msg-tag-needed-txt">
+    <value>Agregue al menos una etiqueta, por ejemplo, "Trabajo" o "Casa"</value>
+  </data>
+  <data name="msg-note-added">
+    <value>Nota añadida</value>
+  </data>
+  <data name="msg-note-updated">
+    <value>Nota actualizada</value>
+  </data>
+  <data name="msg-done">
+    <value>Hecho</value>
+  </data>
+  <data name="msg-file-not-found">
+    <value>No se encuentra el archivo:\n</value>
+  </data>
+  <data name="msg-file-exists">
+    <value>El archivo ya existe:\n{path}\n\n¿Quieres borrarlo?\nEliminará todos los datos</value>
+  </data>
+  <data name="msg-warning">
+    <value>Advertencia</value>
+  </data>
+  <data name="msg-error">
+    <value>Error</value>
+  </data>
+  <data name="dlg-select-file">
+    <value>Seleccione archivo de base de datos</value>
+  </data>
+  <data name="dlg-new-file">
+    <value>Nuevo archivo de base de datos</value>
+  </data>
+    <data name="dlg-filter-open">
+    <value>Archivos de Las Notes (*.db)|*.db|Todos los archivos (*.*)|*.*</value>
+  </data>
+  <data name="dlg-filter-save">
+    <value>Archivos de Las Notes (*.db)|*.db</value>
+  </data>
+</root>

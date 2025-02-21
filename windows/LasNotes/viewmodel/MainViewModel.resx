@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="msg-archive-note">
+    <value>Are you sure you want to archive this note?\nIt can be restored later</value>
+  </data>
+  <data name="msg-delete-note">
+    <value>"Are you sure you want to delete this note?"</value>
+  </data>
+  <data name="msg-tag-needed-hdr">
+    <value>Tag required</value>
+  </data>
+  <data name="msg-tag-needed-txt">
+    <value>Please add at least 1 tag\ne.g. "Work" or "Home"</value>
+  </data>
+  <data name="msg-note-added">
+    <value>Note added</value>
+  </data>
+  <data name="msg-note-updated">
+    <value>Note updated</value>
+  </data>
+  <data name="msg-done">
+    <value>Done</value>
+  </data>
+  <data name="msg-file-not-found">
+    <value>File not found:\n</value>
+  </data>
+  <data name="msg-file-exists">
+    <value>File already exists:\n{path}\n\nDo you want to erase it?\nIt will remove all data</value>
+  </data>
+  <data name="msg-warning">
+    <value>Warning</value>
+  </data>
+  <data name="msg-error">
+    <value>Error</value>
+  </data>
+  <data name="dlg-select-file">
+    <value>Select a DB file</value>
+  </data>
+  <data name="dlg-new-file">
+    <value>New DB file</value>
+  </data>
+  <data name="dlg-filter-open">
+    <value>Las Notes DB files (*.db)|*.db|All Files (*.*)|*.*</value>
+  </data>
+  <data name="dlg-filter-save">
+    <value>Las Notes DB files (*.db)|*.db</value>
+  </data>
+</root>

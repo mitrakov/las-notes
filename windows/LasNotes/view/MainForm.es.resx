@@ -48,4 +48,7 @@
   <data name="menu-about">
     <value>Acerca de Las Notes...</value>
   </data>
+  <data name="msg-about">
+    <value>Autor: Artem Mitrakov (mitrakov-artem@yandex.ru) Licencia MIT © Todos los derechos reservados</value>
+  </data>
 </root>
